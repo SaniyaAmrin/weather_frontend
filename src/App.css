@@ -1,0 +1,100 @@
+/* Reset / base styles */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5); /* same gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Center the app container properly */
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ☀️ Sun Animation */
+.sun {
+  width: 40px;
+  height: 40px;
+  margin: 8px auto;
+  background: yellow;
+  border-radius: 50%;
+  position: relative;
+  animation: spin 6s linear infinite;
+  box-shadow: 0 0 15px yellow;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 🌧️ Rain Animation */
+.rain {
+  width: 20px;
+  height: 40px;
+  margin: 8px auto;
+  position: relative;
+}
+
+.rain::before,
+.rain::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 15px;
+  background: #00f;
+  border-radius: 2px;
+  animation: raindrop 0.6s infinite;
+}
+
+.rain::after {
+  left: 8px;
+  animation-delay: 0.3s;
+}
+
+@keyframes raindrop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(25px); opacity: 0; }
+}
+
+/* ❄️ Snow Animation */
+.snow {
+  width: 20px;
+  height: 20px;
+  margin: 8px auto;
+  position: relative;
+}
+
+.snow::before,
+.snow::after {
+  content: '❄';
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+  color: white;
+  animation: snowfall 1.5s linear infinite;
+}
+
+.snow::after {
+  left: 10px;
+  animation-delay: 0.7s;
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(20px); opacity: 0; }
+}
+
+/* Forecast cards */
+.forecast .p-3 {
+  text-align: center;
+  font-weight: bold;
+  border-radius: 12px;
+}
